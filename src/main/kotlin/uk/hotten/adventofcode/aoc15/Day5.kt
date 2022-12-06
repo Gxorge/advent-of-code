@@ -32,7 +32,7 @@ class Day5: AOCDay(15, "day5.txt") {
                 }
             }
 
-            // Dissalow check
+            // Disallow check
             for (disallowed in disallow) {
                 if (line.contains(disallowed)) {
                     containsDisallow = true
@@ -56,7 +56,6 @@ class Day5: AOCDay(15, "day5.txt") {
         var nice = 0
         var naughty = 0
         for (line in getInput()) {
-            println("----------------------------------------------------------------------------")
             var containsDouble = false;
             var containsFriendDouble = false;
 
@@ -71,29 +70,22 @@ class Day5: AOCDay(15, "day5.txt") {
                 val charOne = line[lineOne]
                 val charTwo = line[lineTwo]
 
-                println("$charOne $charTwo")
                 val toAdd = "$charOne$charTwo"
 
                 if (lineOne == 0 && lineTwo == 1) {
-                    if (line[lineOne+1] == line[lineTwo+1]) {
-                        println("they equal")
+                    if (line[lineOne+1] == line[lineTwo+1])
                         continue
-                    }
+
                     potentials.add(toAdd)
-                    println("not found start")
                     continue
                 }
 
                 if (line[lineOne-1] != line[lineTwo-1]) {
                     if (potentials.contains(toAdd)) {
                         doublesFound++
-                        println("double found")
                     } else {
                         potentials.add(toAdd)
-                        println("not found")
                     }
-                } else {
-                    println("they equal")
                 }
             }
 
@@ -101,27 +93,24 @@ class Day5: AOCDay(15, "day5.txt") {
 
             // check for double with friends
             for (lineOne in line.indices) {
-                val lineTwo = lineOne + 1
                 val lineThree = lineOne + 2
                 if (lineThree >= line.length)
                     break
 
                 val charOne = line[lineOne]
-                val charTwo = line[lineTwo]
                 val charThree = line[lineThree]
 
                 if (charOne == charThree) {
-                    println("the two good chars are $charOne $charThree")
                     containsFriendDouble = true
                 }
             }
 
             if (containsDouble && containsFriendDouble) {
                 nice++
-                println("nice")
+                println("The string is nice!")
             } else {
                 naughty++
-                println("naught $containsDouble $containsFriendDouble")
+                println("The string is naughty! double = $containsDouble friend = $containsFriendDouble")
             }
         }
 

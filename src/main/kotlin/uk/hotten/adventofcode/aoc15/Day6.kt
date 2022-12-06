@@ -132,7 +132,7 @@ class Day6: AOCDay(15, "day6.txt") {
         for (item in grid.entries) {
             brightness += item.value
         }
-        println("There are a total of $brightness lights on!")
+        println("The total brightness of the lights are $brightness !")
     }
 
 }
