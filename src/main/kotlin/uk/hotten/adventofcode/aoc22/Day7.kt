@@ -197,8 +197,6 @@ class Day7: AOCDay(22, "day7.txt") {
 
     }
 
-    fun isInteger(str: String?) = str?.toIntOrNull()?.let { true } ?: false
-
     fun countOccurrences(s: String, ch: Char): Int {
         return s.filter { it == ch }.count()
     }
