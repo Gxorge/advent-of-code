@@ -2,7 +2,7 @@ package uk.hotten.adventofcode.aoc22
 
 import uk.hotten.adventofcode.AOCDay
 
-class Day4: AOCDay(22, "day4.txt") {
+class Day04: AOCDay(22, "day4.txt") {
 
     override fun part1() {
         var amountOfOverlaps = 0;

@@ -3,7 +3,7 @@ package uk.hotten.adventofcode.aoc22
 import uk.hotten.adventofcode.AOCDay
 
 // dont read this code just dont do it i dont even know what the fuck this does
-class Day7: AOCDay(22, "day7.txt") {
+class Day07: AOCDay(22, "day7.txt") {
 
     override fun part1() {
         val dirs = mutableMapOf<String, Int>()

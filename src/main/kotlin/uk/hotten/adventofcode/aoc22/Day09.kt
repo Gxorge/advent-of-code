@@ -3,7 +3,7 @@ package uk.hotten.adventofcode.aoc22
 import uk.hotten.adventofcode.AOCDay
 import kotlin.math.abs
 
-class Day9: AOCDay(22, "day9.txt") {
+class Day09: AOCDay(22, "day9.txt") {
 
     override fun part1() {
         var headX = 0

@@ -2,7 +2,7 @@ package uk.hotten.adventofcode.aoc22
 
 import uk.hotten.adventofcode.AOCDay
 
-class Day5: AOCDay(22, "day5.txt") {
+class Day05: AOCDay(22, "day5.txt") {
 
     val numberOfStacks = 9;
 

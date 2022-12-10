@@ -2,7 +2,7 @@ package uk.hotten.adventofcode.aoc22
 
 import uk.hotten.adventofcode.AOCDay
 
-class Day3: AOCDay(22, "day3.txt") {
+class Day03: AOCDay(22, "day3.txt") {
 
     val values: CharArray = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray()
 
