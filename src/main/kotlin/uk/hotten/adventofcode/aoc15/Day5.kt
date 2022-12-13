@@ -2,7 +2,7 @@ package uk.hotten.adventofcode.aoc15
 
 import uk.hotten.adventofcode.AOCDay
 
-class Day5: AOCDay(15, "day5.txt") {
+class Day5: AOCDay(15, "day05.txt") {
 
     val vowels = listOf('a', 'e', 'i', 'o', 'u')
     val disallow = listOf("ab", "cd", "pq", "xy")

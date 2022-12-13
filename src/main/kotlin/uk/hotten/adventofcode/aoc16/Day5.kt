@@ -2,7 +2,7 @@ package uk.hotten.adventofcode.aoc16
 
 import uk.hotten.adventofcode.AOCDay
 
-class Day5: AOCDay(16, "day5.txt") {
+class Day5: AOCDay(16, "day05.txt") {
 
     override fun part1() {
         var password = ""

@@ -2,7 +2,7 @@ package uk.hotten.adventofcode.aoc21
 
 import uk.hotten.adventofcode.AOCDay
 
-class Day4: AOCDay(21, "day4.txt") {
+class Day4: AOCDay(21, "day04.txt") {
 
     val draw = mutableListOf<Int>()
     val boards = mutableListOf<Board>()

@@ -2,7 +2,7 @@ package uk.hotten.adventofcode.aoc21
 
 import uk.hotten.adventofcode.AOCDay
 
-class Day3: AOCDay(21, "day3.txt") {
+class Day3: AOCDay(21, "day03.txt") {
 
     val lines = mutableListOf<String>()
 

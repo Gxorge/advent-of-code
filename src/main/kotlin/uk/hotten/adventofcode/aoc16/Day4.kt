@@ -2,7 +2,7 @@ package uk.hotten.adventofcode.aoc16
 
 import uk.hotten.adventofcode.AOCDay
 
-class Day4: AOCDay(16, "day4.txt") {
+class Day4: AOCDay(16, "day04.txt") {
 
     val listOfValids = mutableListOf<String>()
     val alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray()

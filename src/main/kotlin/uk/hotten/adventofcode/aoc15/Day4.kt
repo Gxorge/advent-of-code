@@ -2,7 +2,7 @@ package uk.hotten.adventofcode.aoc15
 
 import uk.hotten.adventofcode.AOCDay
 
-class Day4: AOCDay(15, "day4.txt") {
+class Day4: AOCDay(15, "day04.txt") {
 
     override fun part1() {
         var found = false

@@ -2,7 +2,7 @@ package uk.hotten.adventofcode.aoc16
 
 import uk.hotten.adventofcode.AOCDay
 
-class Day6: AOCDay(16, "day6.txt") {
+class Day6: AOCDay(16, "day06.txt") {
 
     override fun part1() {
         val mostCommon = mutableListOf<Char>()

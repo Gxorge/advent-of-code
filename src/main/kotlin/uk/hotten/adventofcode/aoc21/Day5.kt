@@ -2,7 +2,7 @@ package uk.hotten.adventofcode.aoc21
 
 import uk.hotten.adventofcode.AOCDay
 
-class Day5: AOCDay(21, "day5.txt") {
+class Day5: AOCDay(21, "day05.txt") {
 
     val lines = mutableListOf<Position>()
     val posCount = mutableMapOf<Position, Int>()

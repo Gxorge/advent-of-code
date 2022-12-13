@@ -2,7 +2,7 @@ package uk.hotten.adventofcode.aoc16
 
 import uk.hotten.adventofcode.AOCDay
 
-class Day2: AOCDay(16, "day2.txt") {
+class Day2: AOCDay(16, "day02.txt") {
 
     val top = listOf<Int>(1, 2, 3)
     val middle = listOf<Int>(4, 5, 6)

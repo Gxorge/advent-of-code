@@ -2,7 +2,7 @@ package uk.hotten.adventofcode.aoc21
 
 import uk.hotten.adventofcode.AOCDay
 
-class Day6: AOCDay(21, "day6.txt") {
+class Day6: AOCDay(21, "day06.txt") {
 
     val fishList = mutableListOf<Byte>()
 

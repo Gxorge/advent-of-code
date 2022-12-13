@@ -2,7 +2,7 @@ package uk.hotten.adventofcode.aoc16
 
 import uk.hotten.adventofcode.AOCDay
 
-class Day1: AOCDay(16, "day1.txt") {
+class Day1: AOCDay(16, "day01.txt") {
 
     override fun part1() {
         var x = 0;

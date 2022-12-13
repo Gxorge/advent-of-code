@@ -2,7 +2,7 @@ package uk.hotten.adventofcode.aoc15
 
 import uk.hotten.adventofcode.AOCDay
 
-class Day6: AOCDay(15, "day6.txt") {
+class Day6: AOCDay(15, "day06.txt") {
 
     override fun part1() {
         val grid = mutableMapOf<String, Int>()

@@ -2,7 +2,7 @@ package uk.hotten.adventofcode.aoc15
 
 import uk.hotten.adventofcode.AOCDay
 
-class Day3: AOCDay(15, "day3.txt") {
+class Day3: AOCDay(15, "day03.txt") {
 
     override fun part1() {
         val visitedHouses = mutableListOf<String>()

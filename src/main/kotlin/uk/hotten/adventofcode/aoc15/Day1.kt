@@ -2,7 +2,7 @@ package uk.hotten.adventofcode.aoc15
 
 import uk.hotten.adventofcode.AOCDay
 
-class Day1: AOCDay(15, "day1.txt") {
+class Day1: AOCDay(15, "day01.txt") {
 
     override fun part1() {
         var currentFloor = 0;
