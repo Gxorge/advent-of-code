@@ -2,7 +2,7 @@ package uk.hotten.adventofcode.aoc22
 
 import uk.hotten.adventofcode.AOCDay
 
-class Day06: AOCDay(22, "day6.txt") {
+class Day06: AOCDay(22, "day06.txt") {
 
     override fun part1() {
         val line = getInput()[0]
