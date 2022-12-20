@@ -1,10 +1,12 @@
 package uk.hotten.adventofcode.aoc22
 
 import uk.hotten.adventofcode.AOCDay
+import kotlin.math.max
+import kotlin.math.min
 
-class Day17: AOCDay(22, "day17test.txt") {
+class Day17: AOCDay(22, "day17.txt") {
 
-    val grid = mutableMapOf<Pair<Int, Int>, Boolean>()
+    val cave = mutableSetOf<Pair<Int, Int>>()
     var mostRecentRock = 0
 
     val movements = mutableListOf<Char>()
@@ -69,14 +71,13 @@ class Day17: AOCDay(22, "day17test.txt") {
 
         var currentRock = 0
         var currentMovement = 0
-        var movementsSize = movements.size
+        val movementsSize = movements.size
+
         while (currentRock != 2022) {
-            currentRock++
             var settled = false
 
             var rocks = getNextRock(Pair(2, highestY+4))
 
-            //visualise(highestY, rocks)
             var turn = 1
             while (!settled) {
                 if (turn == 1) {
@@ -93,7 +94,7 @@ class Day17: AOCDay(22, "day17test.txt") {
                             break
                         }
 
-                        if (grid.contains(Pair(rock.first + modifier, rock.second))) {
+                        if (cave.contains(Pair(rock.first + modifier, rock.second))) {
                             canMove = false
                             break
                         }
@@ -104,7 +105,6 @@ class Day17: AOCDay(22, "day17test.txt") {
                     turn = 2
                     rocks = if (canMove) newRocks else rocks
                     currentMovement++
-                    //visualise(highestY, rocks)
                     continue
                 }
 
@@ -118,7 +118,7 @@ class Day17: AOCDay(22, "day17test.txt") {
                         break
                     }
 
-                    if (grid.contains(Pair(rock.first, rock.second - 1))) {
+                    if (cave.contains(Pair(rock.first, rock.second - 1))) {
                         canMove = false
                         break
                     }
@@ -127,7 +127,6 @@ class Day17: AOCDay(22, "day17test.txt") {
                 }
 
                 turn = 1
-                //visualise(highestY, rocks)
                 if (canMove) {
                     rocks = newRocks
                     continue
@@ -141,11 +140,12 @@ class Day17: AOCDay(22, "day17test.txt") {
             var localHighestY = -1
 
             for (rock in rocks) {
-                grid[rock] = true
-                localHighestY = if (localHighestY <= rock.second) rock.second else localHighestY
+                cave.add(rock)
+                localHighestY = max(localHighestY, rock.second)
             }
 
-            highestY = if (localHighestY > highestY) localHighestY else highestY
+            highestY = max(highestY, localHighestY)
+            currentRock++
         }
 
         //visualise(highestY, mutableListOf())
@@ -155,8 +155,112 @@ class Day17: AOCDay(22, "day17test.txt") {
 
     override fun part2() {
 
+        var currentRock = 0
+        var currentMovement = 0
+        val movementsSize = movements.size
+
+        while (currentRock != 5000) {
+            var settled = false
+
+            var rocks = getNextRock(Pair(2, highestY+4))
+
+            var turn = 1
+            while (!settled) {
+                if (turn == 1) {
+                    if (currentMovement == movementsSize)
+                        currentMovement = 0
+
+                    val newRocks = rocks.toMutableList()
+                    var canMove = true
+                    val modifier = if (movements[currentMovement] == '>') +1 else -1
+                    for (i in rocks.size-1 downTo 0) {
+                        val rock = rocks[i]
+                        if ((modifier == +1 && rock.first == 6) || (modifier == -1 && rock.first == 0)) {
+                            canMove = false
+                            break
+                        }
+
+                        if (cave.contains(Pair(rock.first + modifier, rock.second))) {
+                            canMove = false
+                            break
+                        }
+
+                        newRocks[i] = Pair(rock.first + modifier, rock.second)
+                    }
+
+                    turn = 2
+                    rocks = if (canMove) newRocks else rocks
+                    currentMovement++
+                    continue
+                }
+
+                // Turn 2
+                val newRocks = rocks.toMutableList()
+                var canMove = true
+                for (i in rocks.size-1 downTo 0) {
+                    val rock = rocks[i]
+                    if (rock.second == 1) {
+                        canMove = false
+                        break
+                    }
+
+                    if (cave.contains(Pair(rock.first, rock.second - 1))) {
+                        canMove = false
+                        break
+                    }
+
+                    newRocks[i] = Pair(rock.first, rock.second - 1)
+                }
+
+                turn = 1
+                if (canMove) {
+                    rocks = newRocks
+                    continue
+                }
+
+                settled = true
+            }
+
+            // If it can't move
+
+            var localHighestY = -1
+            var sY = Int.MAX_VALUE
+
+            for (rock in rocks) {
+                cave.add(rock)
+                localHighestY = max(localHighestY, rock.second)
+                sY = min(sY, rock.second)
+            }
+
+
+            highestY = max(highestY, localHighestY)
+
+            if (
+                (!cave.contains(Pair(0, sY)) && !cave.contains(Pair(1, sY))
+                        && cave.contains(Pair(2, sY)) && !cave.contains(Pair(3, sY))
+                        && cave.contains(Pair(4, sY)) && cave.contains(Pair(5, sY))
+                        && !cave.contains(Pair(6, sY))) &&
+                (!cave.contains(Pair(0, sY+1)) && !cave.contains(Pair(1, sY+1))
+                        && cave.contains(Pair(2, sY+1)) && !cave.contains(Pair(3, sY+1))
+                        && cave.contains(Pair(4, sY+1)) && cave.contains(Pair(5, sY+1))
+                        && !cave.contains(Pair(6, sY+1)))
+            ) {
+                println("Pattern repeat at $currentRock with jet ${currentMovement} with height $highestY")
+            }
+
+            // With the above I found that the repeat is from 4rock 2414 and 674. so I'll do 2414 - 674 = 1740
+            val remainder = (1000000000000L % 1740).toInt()
+            if (currentRock == 674 + remainder) {
+                println("Height is $highestY with rem $remainder")
+            }
+
+            currentRock++
+        }
+
+        val result = ((1000000000000L / 1740) * 2681 + 2597) - 798 // why does it work? shut up
+        println(result)
     }
-    
+
 
     private fun visualise(highestY: Int, activeRocks: List<Pair<Int, Int>>) {
         for (y in highestY+6 downTo 1) {
@@ -175,7 +279,7 @@ class Day17: AOCDay(22, "day17test.txt") {
                 if (pleaseContinue)
                     continue
 
-                if (grid.contains(Pair(x,y)))
+                if (cave.contains(Pair(x,y)))
                     print("#")
                 else
                     print(".")
