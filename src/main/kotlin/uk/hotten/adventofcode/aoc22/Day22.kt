@@ -157,21 +157,8 @@ class Day22: AOCDay(22, "day22.txt") {
     }
 
 
-    /**
-     * Linked regions
-     * Right of 1, top of 3
-     * Left of 1, bottom of 3
-     * Down off 1, bottom of 2
-     * Up off 1, top of 2
-     *
-     * Down off 5, top of 6
-     *
-     * 1 and 3
-     * 4 and 6
-     * 5 and 2
-     */
     override fun part2() {
-
+        Day22P2().part2()
     }
 
     private fun visualise() {
