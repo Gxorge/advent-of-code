@@ -1,3 +1,3 @@
 # Advent of Code 2022
 
-This event is in progress! Solutions will be updated daily. If you are participating, please don't proceed!
+I have completed all solutions for this event. First ever AoC completed, really enjoyed it. My solutions aren't the best, but I'm happy with them. Much love ❤️ 
