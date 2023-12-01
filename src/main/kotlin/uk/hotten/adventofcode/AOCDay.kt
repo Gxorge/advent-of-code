@@ -45,4 +45,5 @@ abstract class AOCDay(private val year: Int, private val input: String) {
         .padStart(32, '0')
 
     fun isInteger(str: String?) = str?.toIntOrNull()?.let { true } ?: false
+    fun isInteger(char: Char?) = char?.digitToIntOrNull()?.let { true } ?: false
 }
