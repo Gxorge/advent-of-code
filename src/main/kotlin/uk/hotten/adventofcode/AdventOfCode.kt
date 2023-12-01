@@ -1,9 +1,11 @@
 package uk.hotten.adventofcode
 
+import uk.hotten.adventofcode.aoc23.Day01
+
 
 fun main() {
 
-    /*val day = DayX()
+    val day = Day01()
 
     val time = System.currentTimeMillis()
 
@@ -14,6 +16,6 @@ fun main() {
     day.part2()
     println("Part 2 took ${System.currentTimeMillis() - timeP2}ms to run.")
 
-    println("Both parts took ${System.currentTimeMillis() - time}ms to run.")*/
+    println("Both parts took ${System.currentTimeMillis() - time}ms to run.")
     
 }
