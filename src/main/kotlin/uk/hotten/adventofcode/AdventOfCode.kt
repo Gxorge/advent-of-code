@@ -1,15 +1,15 @@
 package uk.hotten.adventofcode
 
-import uk.hotten.adventofcode.aoc23.Day07
+import uk.hotten.adventofcode.aoc23.Day08
 
 
 fun main() {
 
-    val day = Day07();
+    val day = Day08();
 
     val time = System.currentTimeMillis()
 
-    day.part1()
+    //day.part1()
     println("Part 1 took ${System.currentTimeMillis() - time}ms to run.")
 
     val timeP2 = System.currentTimeMillis()
