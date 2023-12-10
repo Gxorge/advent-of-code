@@ -1,11 +1,11 @@
 package uk.hotten.adventofcode
 
-import uk.hotten.adventofcode.aoc23.Day09
+import uk.hotten.adventofcode.aoc23.Day10
 
 
 fun main() {
 
-    val day = Day09();
+    val day = Day10();
 
     val time = System.currentTimeMillis()
 
